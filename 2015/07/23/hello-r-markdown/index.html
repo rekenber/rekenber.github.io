@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A website built through Hugo and blogdown.">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <title>Hello R Markdown</title>
+</head>
+<body><header id="banner">
+    <h2><a href="/">rekenber</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/about/" title="">About</a>
+            </li><li>
+                <a href="/tags/" title="">Tags</a>
+            </li><li>
+                <a href="https://twitter.com/rstudio" title="">Twitter</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Hello R Markdown</h1><time>July 23, 2015</time></header>
+<link href="index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="index_files/anchor-sections/anchor-sections.js"></script>
+<script src="index_files/htmlwidgets/htmlwidgets.js"></script>
+<script src="index_files/plotly-binding/plotly.js"></script>
+<script src="index_files/typedarray/typedarray.min.js"></script>
+<script src="index_files/jquery/jquery.min.js"></script>
+<link href="index_files/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="index_files/crosstalk/js/crosstalk.min.js"></script>
+<link href="index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="index_files/plotly-main/plotly-latest.min.js"></script>
+
+
+<div id="r-markdown" class="section level1">
+<h1>R Markdown</h1>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>You can embed an R code chunk like this:</p>
+<pre class="r"><code>summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932</code></pre>
+</div>
+<div id="including-plots" class="section level1">
+<h1>Including Plots</h1>
+<p>You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:</p>
+<pre class="r"><code>par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
+  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
+  init.angle = -50, border = NA
+)
+
+library(httr)
+library(rvest)
+## 필요한 패키지를 로딩중입니다: xml2
+library(tidyverse)
+## -- Attaching packages ----------------------------------------------------------------------------------------- tidyverse 1.3.0 --
+## √ ggplot2 3.3.2     √ purrr   0.3.4
+## √ tibble  3.0.1     √ dplyr   1.0.0
+## √ tidyr   1.1.0     √ stringr 1.4.0
+## √ readr   1.3.1     √ forcats 0.5.0
+## -- Conflicts -------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter()         masks stats::filter()
+## x readr::guess_encoding() masks rvest::guess_encoding()
+## x dplyr::lag()            masks stats::lag()
+## x purrr::pluck()          masks rvest::pluck()</code></pre>
+<div class="figure"><span id="fig:pie"></span>
+<img src="index_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
+<p class="caption">
+Figure 1: A fancy pie chart.
+</p>
+</div>
+<pre class="r"><code>library(lubridate)
+## 
+## 다음의 패키지를 부착합니다: &#39;lubridate&#39;
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union
+library(ggplot2)
+library(RealEstateApi)
+library(plotly)
+## 
+## 다음의 패키지를 부착합니다: &#39;plotly&#39;
+## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot
+## The following object is masked from &#39;package:httr&#39;:
+## 
+##     config
+## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter
+## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout
+
+trade_data &lt;- lapply(2019:2019 %&gt;% map( 
+  function(year){
+    1:12 %&gt;% (
+      function(month){
+        paste0(year,str_pad(month, 2, pad=&quot;0&quot;))
+      }
+    )
+  }
+) , function(x){
+  lapply(x, function(x){
+    # print(x)
+    #data &lt;- x
+    data &lt;- get_trade_bilfa(&quot;28237&quot;, x)
+    return(data)
+  })
+  
+  #data &lt;- seq_along(x) %&gt;% paste0(x)
+  
+}) %&gt;% bind_rows
+
+trade_data_2020 &lt;- lapply(2020:2020 %&gt;% map( 
+  function(year){
+    1:10 %&gt;% (
+      function(month){
+        paste0(year,str_pad(month, 2, pad=&quot;0&quot;))
+      }
+    )
+  }
+) , function(x){
+  lapply(x, function(x){
+    #data &lt;- x
+    data &lt;- get_trade_bilfa(&quot;28237&quot;, x)
+    return(data)
+  })
+  
+  #data &lt;- seq_along(x) %&gt;% paste0(x)
+  
+}) %&gt;% bind_rows
+
+trade_data &lt;- rbind(trade_data, trade_data_2020)
+
+selected_data &lt;- trade_data %&gt;%
+  filter(건축년도 &lt;= 2011) %&gt;%
+  filter(법정동   == &quot;부평동&quot;) %&gt;%
+  filter(본번 %in% c(631, 632, 633, 636, 637, 640, 641, 642, 645, 652, 653, 654, 655, 656, 657, 658))
+
+selected_data %&gt;%
+  filter(&quot;2020-01-01&quot; &lt;= 계약날짜) %&gt;%
+  mutate(대지권면적정리 = floor(대지권면적)) %&gt;%
+  plot_ly(x=~계약날짜, y=~대지권면적_평, text = ~paste0(연립다세대, &quot;&lt;br&gt;&quot;,
+                                                  &quot;Price: &quot;, 거래금액 ,&quot;만원&lt;br&gt;&quot;,
+                                                  &quot;전용면적: &quot;, 전용면적 ,&quot;㎡&lt;br&gt;&quot;,
+                                                  &quot;대지권면적:&quot;, 대지권면적, &quot;㎡&quot;))
+## No trace type specified:
+##   Based on info supplied, a &#39;scatter&#39; trace seems appropriate.
+##   Read more about this trace type -&gt; https://plot.ly/r/reference/#scatter
+## No scatter mode specifed:
+##   Setting the mode to markers
+##   Read more about this attribute -&gt; https://plot.ly/r/reference/#scatter-mode
+## Warning: `arrange_()` is deprecated as of dplyr 0.7.0.
+## Please use `arrange()` instead.
+## See vignette(&#39;programming&#39;) for more help
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<div class="figure"><span id="fig:pie"></span>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"502828d5bb6":["function () ","plotlyVisDat"]},"cur_data":"502828d5bb6","attrs":{"502828d5bb6":{"x":{},"y":{},"text":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20]}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"계약날짜"},"yaxis":{"domain":[0,1],"automargin":true,"title":"대지권면적_평"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["2020-01-09","2020-01-29","2020-02-17","2020-02-25","2020-03-17","2020-03-18","2020-03-18","2020-03-25","2020-04-18","2020-05-07","2020-06-01","2020-06-02","2020-06-10","2020-06-13","2020-06-15","2020-07-06","2020-07-09","2020-07-09","2020-07-27","2020-07-28","2020-07-28","2020-08-12","2020-08-22","2020-09-17","2020-09-26","2020-10-17","2020-10-26"],"y":[1785.29163144548,958.571428571429,1602.05958072821,1407.24946695096,1178.57142857143,1992.39713774597,1915.52877439328,1051.85934733114,1062.47604446148,1439.68462549277,1819.54887218045,990.426908150065,1570.52206518604,1463.93817973669,1749.94107942493,2298.93423446842,1931.60813308688,1634.8195329087,1641.88180662281,825,691.73859432799,1807.34536082474,1888.60500766479,1625.13220518244,1785.29163144548,1743.63992172211,2209.06282183316],"text":["창우아이빌(101동)<br>Price: 16000만원<br>전용면적: 62.18㎡<br>대지권면적:29.575㎡","금성연립(가,나동)<br>Price: 12200만원<br>전용면적: 51.11㎡<br>대지권면적:42㎡","균정타운2차<br>Price: 13200만원<br>전용면적: 59.74㎡<br>대지권면적:27.19㎡","예진아트빌<br>Price: 14000만원<br>전용면적: 55.53㎡<br>대지권면적:32.83㎡","금성연립(가,나동)<br>Price: 15000만원<br>전용면적: 51.1㎡<br>대지권면적:42㎡","영광하이빌<br>Price: 13500만원<br>전용면적: 62.52㎡<br>대지권면적:22.36㎡","무궁화빌라(1동)<br>Price: 10500만원<br>전용면적: 37.03㎡<br>대지권면적:18.089㎡","무궁화빌라(A,B동)<br>Price: 6300만원<br>전용면적: 34.42㎡<br>대지권면적:19.765㎡","화인아트빌라(A동)<br>Price: 8400만원<br>전용면적: 37.14㎡<br>대지권면적:26.09㎡","다솜빌B동<br>Price: 8300만원<br>전용면적: 41.45㎡<br>대지권면적:19.025㎡","에코빌리지<br>Price: 13200만원<br>전용면적: 50.23㎡<br>대지권면적:23.94㎡","양지빌라<br>Price: 5800만원<br>전용면적: 26.97㎡<br>대지권면적:19.325㎡","정민하이츠<br>Price: 16500만원<br>전용면적: 73.19㎡<br>대지권면적:34.67㎡","어반파크빌<br>Price: 15500만원<br>전용면적: 75.09㎡<br>대지권면적:34.94㎡","로즈탑스빌<br>Price: 9000만원<br>전용면적: 31.55㎡<br>대지권면적:16.972㎡","미타운<br>Price: 13400만원<br>전용면적: 38.21㎡<br>대지권면적:19.235㎡","중앙주택(633-17)<br>Price: 9500만원<br>전용면적: 34.76㎡<br>대지권면적:16.23㎡","세종탑스빌(642-28)<br>Price: 7000만원<br>전용면적: 28.74㎡<br>대지권면적:14.13㎡","무궁화빌라(1동)<br>Price: 9000만원<br>전용면적: 45.9㎡<br>대지권면적:18.089㎡","금성연립(가,나동)<br>Price: 10500만원<br>전용면적: 51.11㎡<br>대지권면적:42㎡","화인아트빌라(A동)<br>Price: 5100만원<br>전용면적: 36.64㎡<br>대지권면적:24.33㎡","중앙주택(633-17)<br>Price: 8500만원<br>전용면적: 33.22㎡<br>대지권면적:15.52㎡","로하스빌<br>Price: 11200만원<br>전용면적: 40.21㎡<br>대지권면적:19.57㎡","남영빌리지<br>Price: 14900만원<br>전용면적: 63.58㎡<br>대지권면적:30.256㎡","창우아이빌(101동)<br>Price: 16000만원<br>전용면적: 62.18㎡<br>대지권면적:29.575㎡","동수빌라<br>Price: 10800만원<br>전용면적: 39.66㎡<br>대지권면적:20.44㎡","로즈탑스빌<br>Price: 13000만원<br>전용면적: 36.1㎡<br>대지권면적:19.42㎡"],"type":"scatter","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+Figure 1: A fancy pie chart.
+</p>
+</div>
+</div>
+</article>
+
+        </main><footer id="footer">
+    
+</footer>
+</body>
+</html>
