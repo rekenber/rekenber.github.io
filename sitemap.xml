@@ -3,8 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2020/11/17/%EB%AF%B8%EC%B6%94%ED%99%80%EA%B5%AC-%EC%95%84%ED%8C%8C%ED%8A%B8-%EB%A7%A4%EB%A7%A4/</loc>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
-    <lastmod>2020-11-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%EB%AF%B8%EC%B6%94%ED%99%80%EA%B5%AC/</loc>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/%EB%B6%80%EB%8F%99%EC%82%B0/</loc>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%EC%95%84%ED%8C%8C%ED%8A%B8/</loc>
+    <lastmod>2020-11-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -13,22 +48,7 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2020-11-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/r/</loc>
-    <lastmod>2020-11-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-11-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-11-02T00:00:00+00:00</lastmod>
   </url>
   
@@ -54,11 +74,6 @@
   
   <url>
     <loc>/tags/%EB%8B%A4%EC%84%B8%EB%8C%80/</loc>
-    <lastmod>2020-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/%EB%B6%80%EB%8F%99%EC%82%B0/</loc>
     <lastmod>2020-11-01T00:00:00+00:00</lastmod>
   </url>
   
