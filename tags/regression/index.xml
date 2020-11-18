@@ -6,75 +6,7 @@
     <description>Recent content in regression on rekenber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
-    
-	<atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-    <item>
-      <title>2020-11-17 미추홀구 아파트 매매</title>
-      <link>/2020/11/17/%EB%AF%B8%EC%B6%94%ED%99%80%EA%B5%AC-%EC%95%84%ED%8C%8C%ED%8A%B8-%EB%A7%A4%EB%A7%A4/</link>
-      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/11/17/%EB%AF%B8%EC%B6%94%ED%99%80%EA%B5%AC-%EC%95%84%ED%8C%8C%ED%8A%B8-%EB%A7%A4%EB%A7%A4/</guid>
-      <description>미추홀구 월별 아파트 거래량data %&amp;gt;%group_by(month = floor_date(계약날짜, &amp;quot;month&amp;quot;)) %&amp;gt;%summarize(count =n(), .groups=&amp;quot;drop&amp;quot;) %&amp;gt;%plot_ly(x=~month, y=~count, type=&amp;quot;scatter&amp;quot;, mode=&amp;quot;lines+markers&amp;quot;){&#34;x&#34;:{&#34;visdat&#34;:{&#34;5e0081a9944e3&#34;:[&#34;function () &#34;,&#34;plotlyVisDat&#34;]},&#34;cur_data&#34;:&#34;5e0081a9944e3&#34;,&#34;attrs&#34;:{&#34;5e0081a9944e3&#34;:{&#34;x&#34;:{},&#34;y&#34;:{},&#34;mode&#34;:&#34;lines+markers&#34;,&#34;alpha_stroke&#34;:1,&#34;sizes&#34;:[10,100],&#34;spans&#34;:[1,20],&#34;type&#34;:&#34;scatter&#34;}},&#34;layout&#34;:{&#34;margin&#34;:{&#34;b&#34;:40,&#34;l&#34;:60,&#34;t&#34;:25,&#34;r&#34;:10},&#34;xaxis&#34;:{&#34;domain&#34;:[0,1],&#34;automargin&#34;:true,&#34;title&#34;:&#34;month&#34;},&#34;yaxis&#34;:{&#34;domain&#34;:[0,1],&#34;automargin&#34;:true,&#34;title&#34;:&#34;count&#34;},&#34;hovermode&#34;:&#34;closest&#34;,&#34;showlegend&#34;:false},&#34;source&#34;:&#34;A&#34;,&#34;config&#34;:{&#34;showSendToCloud&#34;:false},&#34;data&#34;:[{&#34;x&#34;:[&#34;2019-01-01&#34;,&#34;2019-02-01&#34;,&#34;2019-03-01&#34;,&#34;2019-04-01&#34;,&#34;2019-05-01&#34;,&#34;2019-06-01&#34;,&#34;2019-07-01&#34;,&#34;2019-08-01&#34;,&#34;2019-09-01&#34;,&#34;2019-10-01&#34;,&#34;2019-11-01&#34;,&#34;2019-12-01&#34;,&#34;2020-01-01&#34;,&#34;2020-02-01&#34;,&#34;2020-03-01&#34;,&#34;2020-04-01&#34;,&#34;2020-05-01&#34;,&#34;2020-06-01&#34;,&#34;2020-07-01&#34;,&#34;2020-08-01&#34;,&#34;2020-09-01&#34;,&#34;2020-10-01&#34;,&#34;2020-11-01&#34;],&#34;y&#34;:[204,187,245,244,243,257,222,343,216,321,368,428,375,874,485,429,462,698,410,286,285,294,45],&#34;mode&#34;:&#34;lines+markers&#34;,&#34;type&#34;:&#34;scatter&#34;,&#34;marker&#34;:{&#34;color&#34;:&#34;rgba(31,119,180,1)&#34;,&#34;line&#34;:{&#34;color&#34;:&#34;rgba(31,119,180,1)&#34;}},&#34;error_y&#34;:{&#34;color&#34;:&#34;rgba(31,119,180,1)&#34;},&#34;error_x&#34;:{&#34;color&#34;:&#34;rgba(31,119,180,1)&#34;},&#34;line&#34;:{&#34;color&#34;:&#34;rgba(31,119,180,1)&#34;},&#34;xaxis&#34;:&#34;x&#34;,&#34;yaxis&#34;:&#34;y&#34;,&#34;frame&#34;:null}],&#34;highlight&#34;:{&#34;on&#34;:&#34;plotly_click&#34;,&#34;persistent&#34;:false,&#34;dynamic&#34;:false,&#34;selectize&#34;:false,&#34;opacityDim&#34;:0.2,&#34;selected&#34;:{&#34;opacity&#34;:1},&#34;debounce&#34;:0},&#34;shinyEvents&#34;:[&#34;plotly_hover&#34;,&#34;plotly_click&#34;,&#34;plotly_selected&#34;,&#34;plotly_relayout&#34;,&#34;plotly_brushed&#34;,&#34;plotly_brushing&#34;,&#34;plotly_clickannotation&#34;,&#34;plotly_doubleclick&#34;,&#34;plotly_deselect&#34;,&#34;plotly_afterplot&#34;,&#34;plotly_sunburstclick&#34;],&#34;base_url&#34;:&#34;https://plot.ly&#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}미추홀구 가격 변화 상위 20위 아파트data %&amp;gt;% group_by(year = floor_date(계약날짜, &amp;quot;year&amp;quot;), 아파트, 전용면적) %&amp;gt;% summarise(거래금액평균 = round(mean(거래금액)), .groups=&amp;quot;drop&amp;quot;) %&amp;gt;% spread(key=year, value=거래금액평균) %&amp;gt;% mutate(차이 = `2020-01-01` - `2019-01-01`) %&amp;gt;% arrange(desc(차이)) %&amp;gt;% datatable(options = list(pageLength = 20)){&#34;</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>집계할 때 plotly 그래프가 표시되지 않는 오류 수정</title>
-      <link>/2020/11/02/%EC%A7%91%EA%B3%84%ED%95%A0-%EB%95%8C-plotly-%EA%B7%B8%EB%9E%98%ED%94%84%EA%B0%80-%ED%91%9C%EC%8B%9C%EB%90%98%EC%A7%80-%EC%95%8A%EB%8A%94-%EC%98%A4%EB%A5%98-%EC%88%98%EC%A0%95/</link>
-      <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/11/02/%EC%A7%91%EA%B3%84%ED%95%A0-%EB%95%8C-plotly-%EA%B7%B8%EB%9E%98%ED%94%84%EA%B0%80-%ED%91%9C%EC%8B%9C%EB%90%98%EC%A7%80-%EC%95%8A%EB%8A%94-%EC%98%A4%EB%A5%98-%EC%88%98%EC%A0%95/</guid>
-      <description>해결 방법.group=&#34;drop&#34;를 추가한다.
-library(tidyverse)## -- Attaching packages ----------------------------------------------------------------------------------- tidyverse 1.3.0 --## √ ggplot2 3.3.2 √ purrr 0.3.4## √ tibble 3.0.1 √ dplyr 1.0.0## √ tidyr 1.1.0 √ stringr 1.4.0## √ readr 1.3.1 √ forcats 0.5.0## -- Conflicts -------------------------------------------------------------------------------------- tidyverse_conflicts() --## x dplyr::filter() masks stats::filter()## x dplyr::lag() masks stats::lag()library(plotly)## ## 다음의 패키지를 부착합니다: &amp;#39;plotly&amp;#39;## The following object is masked from &amp;#39;package:ggplot2&amp;#39;:## ## last_plot## The following object is masked from &amp;#39;package:stats&amp;#39;:## ## filter## The following object is masked from &amp;#39;package:graphics&amp;#39;:## ## layoutiris %&amp;gt;%group_by(Species) %&amp;gt;%summarize(count = n(), Sepal.</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>github page 만들기(feat. blogdown)</title>
-      <link>/2020/11/01/github-page-%EB%A7%8C%EB%93%A4%EA%B8%B0-feat-blogdown/</link>
-      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/11/01/github-page-%EB%A7%8C%EB%93%A4%EA%B8%B0-feat-blogdown/</guid>
-      <description>블로깅을 꾸준히 할지 모르겠지만.. 한번 만들어봤음ㅎㅎ blogdown으로 블로그를 만들고 github page로 배포하는 방법을 까먹기 전에 정리함~
-blogdown r에서 블로그를 만들어주는 패키지
-blogdown 설치 install.packages(&amp;#39;blogdown&amp;#39;) blogdown project 만들기 File -&amp;gt; New Project -&amp;gt; New Directory -&amp;gt; Website using blogdowntheme 추가하기 $ git submodule add https://github.com/LukasJoswiak/etch.git themes/etch theme 설정하기 config.toml 파일에서 theme = &amp;quot;etch&amp;quot; 설정을 수정
-github page github repo 만들기 github에서 username.github.io 이름으로 신규 저장소를 만든다.
-github repo clone blogdown propect와 동일한 위치에서 page를 clone를 한다.</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>부평구 재개발 내 다세대연립 매매 </title>
-      <link>/2020/11/01/%EB%B6%80%ED%8F%89%EA%B5%AC-%EC%9E%AC%EA%B0%9C%EB%B0%9C-%EB%82%B4-%EB%8B%A4%EC%84%B8%EB%8C%80%EC%97%B0%EB%A6%BD-%EB%A7%A4%EB%A7%A4/</link>
-      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/11/01/%EB%B6%80%ED%8F%89%EA%B5%AC-%EC%9E%AC%EA%B0%9C%EB%B0%9C-%EB%82%B4-%EB%8B%A4%EC%84%B8%EB%8C%80%EC%97%B0%EB%A6%BD-%EB%A7%A4%EB%A7%A4/</guid>
-      <description>## 필요한 패키지를 로딩중입니다: xml2## -- Attaching packages ------------------------------------------------- tidyverse 1.3.0 --## √ ggplot2 3.3.2 √ purrr 0.3.4## √ tibble 3.0.1 √ dplyr 1.0.0## √ tidyr 1.1.0 √ stringr 1.4.0## √ readr 1.3.1 √ forcats 0.5.0## -- Conflicts ---------------------------------------------------- tidyverse_conflicts() --## x dplyr::filter() masks stats::filter()## x readr::guess_encoding() masks rvest::guess_encoding()## x dplyr::lag() masks stats::lag()## x purrr::pluck() masks rvest::pluck()## ## 다음의 패키지를 부착합니다: &amp;#39;lubridate&amp;#39;## The following objects are masked from &amp;#39;package:base&amp;#39;:## ## date, intersect, setdiff, union## ## 다음의 패키지를 부착합니다: &amp;#39;plotly&amp;#39;## The following object is masked from &amp;#39;package:ggplot2&amp;#39;:## ## last_plot## The following object is masked from &amp;#39;package:httr&amp;#39;:## ## config## The following object is masked from &amp;#39;package:stats&amp;#39;:## ## filter## The following object is masked from &amp;#39;package:graphics&amp;#39;:## ## layoutddd ddffd</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>A Plain Markdown Post</title>
-      <link>/2016/12/30/a-plain-markdown-post/</link>
-      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
-      
-      <guid>/2016/12/30/a-plain-markdown-post/</guid>
-      <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
- You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
-    </item>
-    
-    
-    
-    
-    
+    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate><atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello R Markdown</title>
       <link>/2015/07/23/hello-r-markdown/</link>
@@ -85,7 +17,6 @@ github repo clone blogdown propect와 동일한 위치에서 page를 clone를 �
 You can embed an R code chunk like this:
 summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.</description>
     </item>
-    
     
   </channel>
 </rss>

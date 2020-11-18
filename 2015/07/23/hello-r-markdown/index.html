@@ -1,33 +1,55 @@
 <!DOCTYPE html>
-<html><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A website built through Hugo and blogdown.">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    
-    <link rel="stylesheet" href="/css/style.min.css">
+<html lang="en-us">
+<title>Hello R Markdown | rekenber</title>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.77.0" />
+<meta name="description" content="A website built through Hugo and blogdown.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/classes.css">
+<link rel="canonical" href="/2015/07/23/hello-r-markdown/">
+<link rel="alternate" type="application/rss+xml" href="" title="rekenber">
 
-    <title>Hello R Markdown</title>
-</head>
-<body><header id="banner">
-    <h2><a href="/">rekenber</a></h2>
+<body>
+
+<header class="icons">
+  
+    <a href="/">rekenber</a>
+  
+  
     <nav>
-        <ul>
-            <li>
-                <a href="/about/" title="">About</a>
-            </li><li>
-                <a href="/tags/" title="">Tags</a>
-            </li><li>
-                <a href="https://twitter.com/rstudio" title="">Twitter</a>
-            </li>
-        </ul>
+    
+      <a href="/about/" >
+        
+          About
+        
+      </a>
+    
+      <a href="/tags/" >
+        
+          Tags
+        
+      </a>
+    
+      <a href="https://twitter.com/rstudio" >
+        
+          Twitter
+        
+      </a>
+    
     </nav>
+  
+  
+    <div class="hidden description">A website built through Hugo and blogdown.</div>
+  
 </header>
-<main id="content">
+
 <article>
-    <header id="post-header">
-        <h1>Hello R Markdown</h1><time>July 23, 2015</time></header>
+  <header>
+    <a href="/categories/r/">R</a><h1>Hello R Markdown</h1>
+    <time datetime="2015-07-23T21:13:14-05:00">July 23, 2015</time>
+  </header>
+  
 <link href="index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="index_files/anchor-sections/anchor-sections.js"></script>
 <script src="index_files/htmlwidgets/htmlwidgets.js"></script>
@@ -77,12 +99,12 @@ library(httr)
 library(rvest)
 ## 필요한 패키지를 로딩중입니다: xml2
 library(tidyverse)
-## -- Attaching packages ----------------------------------------------------------------------------------------- tidyverse 1.3.0 --
+## -- Attaching packages ------------------------------------------------- tidyverse 1.3.0 --
 ## √ ggplot2 3.3.2     √ purrr   0.3.4
 ## √ tibble  3.0.1     √ dplyr   1.0.0
 ## √ tidyr   1.1.0     √ stringr 1.4.0
 ## √ readr   1.3.1     √ forcats 0.5.0
-## -- Conflicts -------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ---------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter()         masks stats::filter()
 ## x readr::guess_encoding() masks rvest::guess_encoding()
 ## x dplyr::lag()            masks stats::lag()
@@ -129,7 +151,7 @@ trade_data &lt;- lapply(2019:2019 %&gt;% map(
   lapply(x, function(x){
     # print(x)
     #data &lt;- x
-    data &lt;- get_trade_bilfa(&quot;28237&quot;, x)
+    data &lt;- download_trade_villa_data(&quot;28237&quot;, x)
     return(data)
   })
   
@@ -148,7 +170,7 @@ trade_data_2020 &lt;- lapply(2020:2020 %&gt;% map(
 ) , function(x){
   lapply(x, function(x){
     #data &lt;- x
-    data &lt;- get_trade_bilfa(&quot;28237&quot;, x)
+    data &lt;- download_trade_villa_data(&quot;28237&quot;, x)
     return(data)
   })
   
@@ -183,16 +205,17 @@ selected_data %&gt;%
 ## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
 <div class="figure"><span id="fig:pie"></span>
 <div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"502828d5bb6":["function () ","plotlyVisDat"]},"cur_data":"502828d5bb6","attrs":{"502828d5bb6":{"x":{},"y":{},"text":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20]}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"계약날짜"},"yaxis":{"domain":[0,1],"automargin":true,"title":"대지권면적_평"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["2020-01-09","2020-01-29","2020-02-17","2020-02-25","2020-03-17","2020-03-18","2020-03-18","2020-03-25","2020-04-18","2020-05-07","2020-06-01","2020-06-02","2020-06-10","2020-06-13","2020-06-15","2020-07-06","2020-07-09","2020-07-09","2020-07-27","2020-07-28","2020-07-28","2020-08-12","2020-08-22","2020-09-17","2020-09-26","2020-10-17","2020-10-26"],"y":[1785.29163144548,958.571428571429,1602.05958072821,1407.24946695096,1178.57142857143,1992.39713774597,1915.52877439328,1051.85934733114,1062.47604446148,1439.68462549277,1819.54887218045,990.426908150065,1570.52206518604,1463.93817973669,1749.94107942493,2298.93423446842,1931.60813308688,1634.8195329087,1641.88180662281,825,691.73859432799,1807.34536082474,1888.60500766479,1625.13220518244,1785.29163144548,1743.63992172211,2209.06282183316],"text":["창우아이빌(101동)<br>Price: 16000만원<br>전용면적: 62.18㎡<br>대지권면적:29.575㎡","금성연립(가,나동)<br>Price: 12200만원<br>전용면적: 51.11㎡<br>대지권면적:42㎡","균정타운2차<br>Price: 13200만원<br>전용면적: 59.74㎡<br>대지권면적:27.19㎡","예진아트빌<br>Price: 14000만원<br>전용면적: 55.53㎡<br>대지권면적:32.83㎡","금성연립(가,나동)<br>Price: 15000만원<br>전용면적: 51.1㎡<br>대지권면적:42㎡","영광하이빌<br>Price: 13500만원<br>전용면적: 62.52㎡<br>대지권면적:22.36㎡","무궁화빌라(1동)<br>Price: 10500만원<br>전용면적: 37.03㎡<br>대지권면적:18.089㎡","무궁화빌라(A,B동)<br>Price: 6300만원<br>전용면적: 34.42㎡<br>대지권면적:19.765㎡","화인아트빌라(A동)<br>Price: 8400만원<br>전용면적: 37.14㎡<br>대지권면적:26.09㎡","다솜빌B동<br>Price: 8300만원<br>전용면적: 41.45㎡<br>대지권면적:19.025㎡","에코빌리지<br>Price: 13200만원<br>전용면적: 50.23㎡<br>대지권면적:23.94㎡","양지빌라<br>Price: 5800만원<br>전용면적: 26.97㎡<br>대지권면적:19.325㎡","정민하이츠<br>Price: 16500만원<br>전용면적: 73.19㎡<br>대지권면적:34.67㎡","어반파크빌<br>Price: 15500만원<br>전용면적: 75.09㎡<br>대지권면적:34.94㎡","로즈탑스빌<br>Price: 9000만원<br>전용면적: 31.55㎡<br>대지권면적:16.972㎡","미타운<br>Price: 13400만원<br>전용면적: 38.21㎡<br>대지권면적:19.235㎡","중앙주택(633-17)<br>Price: 9500만원<br>전용면적: 34.76㎡<br>대지권면적:16.23㎡","세종탑스빌(642-28)<br>Price: 7000만원<br>전용면적: 28.74㎡<br>대지권면적:14.13㎡","무궁화빌라(1동)<br>Price: 9000만원<br>전용면적: 45.9㎡<br>대지권면적:18.089㎡","금성연립(가,나동)<br>Price: 10500만원<br>전용면적: 51.11㎡<br>대지권면적:42㎡","화인아트빌라(A동)<br>Price: 5100만원<br>전용면적: 36.64㎡<br>대지권면적:24.33㎡","중앙주택(633-17)<br>Price: 8500만원<br>전용면적: 33.22㎡<br>대지권면적:15.52㎡","로하스빌<br>Price: 11200만원<br>전용면적: 40.21㎡<br>대지권면적:19.57㎡","남영빌리지<br>Price: 14900만원<br>전용면적: 63.58㎡<br>대지권면적:30.256㎡","창우아이빌(101동)<br>Price: 16000만원<br>전용면적: 62.18㎡<br>대지권면적:29.575㎡","동수빌라<br>Price: 10800만원<br>전용면적: 39.66㎡<br>대지권면적:20.44㎡","로즈탑스빌<br>Price: 13000만원<br>전용면적: 36.1㎡<br>대지권면적:19.42㎡"],"type":"scatter","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"652e059475771":["function () ","plotlyVisDat"]},"cur_data":"652e059475771","attrs":{"652e059475771":{"x":{},"y":{},"text":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20]}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"계약날짜"},"yaxis":{"domain":[0,1],"automargin":true,"title":"대지권면적_평"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["2020-01-09","2020-01-29","2020-02-17","2020-02-25","2020-03-17","2020-03-18","2020-03-18","2020-03-25","2020-04-18","2020-05-07","2020-06-01","2020-06-02","2020-06-10","2020-06-13","2020-06-15","2020-07-06","2020-07-09","2020-07-09","2020-07-27","2020-07-28","2020-07-28","2020-08-12","2020-08-22","2020-09-17","2020-09-26","2020-10-17","2020-10-26"],"y":[1785.29163144548,958.571428571429,1602.05958072821,1407.24946695096,1178.57142857143,1992.39713774597,1915.52877439328,1051.85934733114,1062.47604446148,1439.68462549277,1819.54887218045,990.426908150065,1570.52206518604,1463.93817973669,1749.94107942493,2298.93423446842,1634.8195329087,1931.60813308688,1641.88180662281,825,691.73859432799,1807.34536082474,1888.60500766479,1625.13220518244,1785.29163144548,1743.63992172211,2209.06282183316],"text":["창우아이빌(101동)<br>Price: 16000만원<br>전용면적: 62.18㎡<br>대지권면적:29.575㎡","금성연립(가,나동)<br>Price: 12200만원<br>전용면적: 51.11㎡<br>대지권면적:42㎡","균정타운2차<br>Price: 13200만원<br>전용면적: 59.74㎡<br>대지권면적:27.19㎡","예진아트빌<br>Price: 14000만원<br>전용면적: 55.53㎡<br>대지권면적:32.83㎡","금성연립(가,나동)<br>Price: 15000만원<br>전용면적: 51.1㎡<br>대지권면적:42㎡","영광하이빌<br>Price: 13500만원<br>전용면적: 62.52㎡<br>대지권면적:22.36㎡","무궁화빌라(1동)<br>Price: 10500만원<br>전용면적: 37.03㎡<br>대지권면적:18.089㎡","무궁화빌라(A,B동)<br>Price: 6300만원<br>전용면적: 34.42㎡<br>대지권면적:19.765㎡","화인아트빌라(A동)<br>Price: 8400만원<br>전용면적: 37.14㎡<br>대지권면적:26.09㎡","다솜빌B동<br>Price: 8300만원<br>전용면적: 41.45㎡<br>대지권면적:19.025㎡","에코빌리지<br>Price: 13200만원<br>전용면적: 50.23㎡<br>대지권면적:23.94㎡","양지빌라<br>Price: 5800만원<br>전용면적: 26.97㎡<br>대지권면적:19.325㎡","정민하이츠<br>Price: 16500만원<br>전용면적: 73.19㎡<br>대지권면적:34.67㎡","어반파크빌<br>Price: 15500만원<br>전용면적: 75.09㎡<br>대지권면적:34.94㎡","로즈탑스빌<br>Price: 9000만원<br>전용면적: 31.55㎡<br>대지권면적:16.972㎡","미타운<br>Price: 13400만원<br>전용면적: 38.21㎡<br>대지권면적:19.235㎡","세종탑스빌(642-28)<br>Price: 7000만원<br>전용면적: 28.74㎡<br>대지권면적:14.13㎡","중앙주택(633-17)<br>Price: 9500만원<br>전용면적: 34.76㎡<br>대지권면적:16.23㎡","무궁화빌라(1동)<br>Price: 9000만원<br>전용면적: 45.9㎡<br>대지권면적:18.089㎡","금성연립(가,나동)<br>Price: 10500만원<br>전용면적: 51.11㎡<br>대지권면적:42㎡","화인아트빌라(A동)<br>Price: 5100만원<br>전용면적: 36.64㎡<br>대지권면적:24.33㎡","중앙주택(633-17)<br>Price: 8500만원<br>전용면적: 33.22㎡<br>대지권면적:15.52㎡","로하스빌<br>Price: 11200만원<br>전용면적: 40.21㎡<br>대지권면적:19.57㎡","남영빌리지<br>Price: 14900만원<br>전용면적: 63.58㎡<br>대지권면적:30.256㎡","창우아이빌(101동)<br>Price: 16000만원<br>전용면적: 62.18㎡<br>대지권면적:29.575㎡","동수빌라<br>Price: 10800만원<br>전용면적: 39.66㎡<br>대지권면적:20.44㎡","로즈탑스빌<br>Price: 13000만원<br>전용면적: 36.1㎡<br>대지권면적:19.42㎡"],"type":"scatter","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p class="caption">
 Figure 1: A fancy pie chart.
 </p>
 </div>
 </div>
+
 </article>
 
-        </main><footer id="footer">
-    
-</footer>
+
+
 </body>
+
 </html>
