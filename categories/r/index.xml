@@ -25,7 +25,7 @@ library(tidyverse)## -- Attaching packages ------------------------------------
       <guid>/2020/11/01/github-page-%EB%A7%8C%EB%93%A4%EA%B8%B0-feat-blogdown/</guid>
       <description>블로깅을 꾸준히 할지 모르겠지만.. 한번 만들어봤음ㅎㅎ blogdown으로 블로그를 만들고 github page로 배포하는 방법을 까먹기 전에 정리함~
 blogdown r에서 블로그를 만들어주는 패키지
-blogdown 설치 install.packages(&amp;#39;blogdown&amp;#39;) blogdown project 만들기 File -&amp;gt; New Project -&amp;gt; New Directory -&amp;gt; Website using blogdowntheme 추가하기 $ git submodule add https://github.com/LukasJoswiak/etch.git themes/etch theme 설정하기 config.toml 파일에서 theme = &amp;quot;etch&amp;quot; 설정을 수정
+blogdown 설치 install.packages(&amp;#39;blogdown&amp;#39;) blogdown project 만들기 File -&amp;gt; New Project -&amp;gt; New Directory -&amp;gt; Website using blogdowntheme 추가하기 $ git submodule add https://github.com/niklasbuschmann/contrast-hugo.git themes/etch theme 설정하기 config.toml 파일에서 theme = &amp;quot;contrast-hugo&amp;quot; 설정을 수정
 github page github repo 만들기 github에서 username.github.io 이름으로 신규 저장소를 만든다.
 github repo clone blogdown propect와 동일한 위치에서 page를 clone를 한다.</description>
     </item>

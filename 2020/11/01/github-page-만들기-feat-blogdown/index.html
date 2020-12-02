@@ -59,9 +59,9 @@ blogdown으로 블로그를 만들고 github page로 배포하는 방법을 까�
 </code></pre></div><h3 id="blogdown-project-만들기">blogdown project 만들기</h3>
 <pre><code>File -&gt; New Project -&gt; New Directory -&gt; Website using blogdown
 </code></pre><h3 id="theme-추가하기">theme 추가하기</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git submodule add https://github.com/LukasJoswiak/etch.git themes/etch
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git submodule add https://github.com/niklasbuschmann/contrast-hugo.git themes/etch
 </code></pre></div><h3 id="theme-설정하기">theme 설정하기</h3>
-<p><code>config.toml</code> 파일에서 <code>theme = &quot;etch&quot;</code> 설정을 수정</p>
+<p><code>config.toml</code> 파일에서 <code>theme = &quot;contrast-hugo&quot;</code> 설정을 수정</p>
 <h2 id="github-page">github page</h2>
 <h3 id="github-repo-만들기">github repo 만들기</h3>
 <p>github에서 <code>username.github.io</code> 이름으로 신규 저장소를 만든다.</p>
@@ -69,14 +69,30 @@ blogdown으로 블로그를 만들고 github page로 배포하는 방법을 까�
 <p>blogdown propect와 동일한 위치에서 page를 <code>clone</code>를 한다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd ..
 $ git clone https://github.com/username/username.github.io
-</code></pre></div><h3 id="배포-설정">배포 설정</h3>
+</code></pre></div><h3 id="서버-다루기">서버 다루기</h3>
+<ul>
+<li>
+<p>서버 종료
+blogdown::stop_server()</p>
+</li>
+<li>
+<p>서버 시작
+blogdown::serve_site()</p>
+</li>
+</ul>
+<h3 id="배포-설정">배포 설정</h3>
 <p><code>source/config.toml</code> 파일에서 <code>publishDir = &quot;../username.github.io&quot;</code> 설정을 수정</p>
 <h3 id="github-page-배포하기">github page 배포하기</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git add .
 $ git commit -m <span style="color:#e6db74">&#34;수정&#34;</span>
 $ git branch -M main
 $ git push -u origin main
-</code></pre></div><h1 id="참고">참고</h1>
+</code></pre></div><h3 id="댓글">댓글</h3>
+<ol>
+<li><a href="https://disqus.com/">https://disqus.com/</a> 회원 가입</li>
+<li>disqusShortname 설정 추가</li>
+</ol>
+<h1 id="참고">참고</h1>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=zeYn0maX1nQ">https://www.youtube.com/watch?v=zeYn0maX1nQ</a></li>
 <li><a href="https://mrchypark.github.io/post/blogdown%EC%9C%BC%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EC%82%AC%ED%95%98%EA%B8%B0/">https://mrchypark.github.io/post/blogdown%EC%9C%BC%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EC%82%AC%ED%95%98%EA%B8%B0/</a></li>
